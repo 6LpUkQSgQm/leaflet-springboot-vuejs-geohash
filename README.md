@@ -34,3 +34,7 @@ npm install --save-dev  --unsafe-perm node-sass
 npm run serve
 ```
 
+Open in your web browser:
+``` 
+http://localhost:8080/ 
+```
