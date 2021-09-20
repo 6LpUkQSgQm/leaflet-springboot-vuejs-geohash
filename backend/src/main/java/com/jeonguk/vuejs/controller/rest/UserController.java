@@ -21,37 +21,11 @@ public class UserController {
 
     public static final String HELLO_TEXT = "Hello from Spring Boot Backend!";
 
-    private final UserService userService;
-    private final UserRepository userRepository;
-
-    @GetMapping("/hello")
+    @GetMapping("/message")
     public Response sayHello() {
-        log.info("GET called on /hello resource");
         return new Response(HELLO_TEXT);
     }
 
-    @PostMapping("/user")
-    @ResponseStatus(HttpStatus.CREATED)
-    public User addNewUser (@RequestBody UserDTO request) {
-        User user = new User(request.getFirstName(), request.getLastName());
-        User saveUser = userRepository.save(user);
-
-        log.info(saveUser.toString() + " successfully saved into DB");
-
-        return saveUser;
-    }
-
-    @GetMapping("/user/{id}")
-    public User getUserById(@PathVariable("id") long id) {
-        log.info("Reading user with id " + id + " from database.");
-        return userRepository.findById(id).get();
-    }
-
-    @GetMapping("/mapping/user")
-    public ResponseUser getUser() {
-        log.info("controller get User ");
-        return userService.getUser(1L);
-    }
 
     //inner class
     @NoArgsConstructor
