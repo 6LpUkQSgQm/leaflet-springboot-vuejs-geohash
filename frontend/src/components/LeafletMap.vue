@@ -30,7 +30,7 @@ export default {
     };
   },
   created() {
-    AXIOS.get("/message")
+    AXIOS.get("/geohashs")
       .then((response) => {
         this.message = response.data.data;
       })
