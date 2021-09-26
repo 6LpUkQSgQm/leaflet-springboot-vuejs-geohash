@@ -1,0 +1,15 @@
+type Geohash {
+    id: ID!
+    title: String!
+    latitude: String!
+    longitude: String!
+}
+
+type Query{
+    findAllGeohashs : [Geohash]!
+}
+
+type Mutation{
+    updateGeohash(title: String!, latitude: String!, longitude: String!) : Geohash!
+    newGeohash(title: String!, latitude: String!, longitude: String!) : Geohash!
+}
