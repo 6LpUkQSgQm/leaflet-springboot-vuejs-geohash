@@ -1,6 +1,6 @@
 package com.julienchapron.backend.graphql.types;
 
-public class FormInput {
+public class AddGeohashInput {
     private String geohash;
     private String latitude;
     private String longitude;
