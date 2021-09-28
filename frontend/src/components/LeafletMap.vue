@@ -18,6 +18,7 @@
 import { AXIOS } from "./http-common";
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+import axios from 'axios'
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -44,12 +45,27 @@ export default {
     };
   },
   created() {
-    AXIOS.get("/geohashs")
-      .then((response) => {
-        this.message = response.data.data;
+    axios({
+      method: "POST",
+      url: "http://localhost:8080/graphql",
+      data: {
+        query: `
+                {
+                  geohashById{
+                      id
+                      geohash
+                      latitude
+                      longitude
+                  }
+              }`
+      },
+      headers: { "Content-type": "application/json" }
+    })
+      .then(response => {
+        console.log(response.data)
       })
-      .catch((e) => {
-        console.log(e);
+      .catch(error => {
+        console.log(error);
       });
   },
   methods: {
