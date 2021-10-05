@@ -47,7 +47,7 @@ export default {
   created() {
     axios({
       method: "POST",
-      url: "http://localhost:8080/graphql",
+      url: "http://localhost:8091/graphql",
       data: {
         query: `
                 {
@@ -59,7 +59,6 @@ export default {
                   }
               }`
       },
-      headers: { "Content-type": "application/json" }
     })
       .then(response => {
         console.log(response.data)
