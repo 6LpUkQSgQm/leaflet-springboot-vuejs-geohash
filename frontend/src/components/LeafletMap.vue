@@ -18,14 +18,14 @@
 import { AXIOS } from "./http-common";
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
-import axios from 'axios'
+import axios from "axios";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
-   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-   iconUrl: require('leaflet/dist/images/marker-icon.png'),
-   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 
 export default {
@@ -33,7 +33,7 @@ export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker
+    LMarker,
   },
   data() {
     return {
@@ -41,29 +41,26 @@ export default {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       center: [48.8534, 2.3488],
       zoom: 12,
-      marker:[48.8534, 2.3488]
+      marker: [48.8534, 2.3488],
     };
   },
   created() {
     axios({
       method: "POST",
-      url: "http://localhost:8091/graphql",
+      url: "http://localhost:8080/api/v1/graphql",
       data: {
         query: `
                 {
-                  geohashs{
-                      id
-                      name
-                      latitude
-                      longitude
-                  }
-              }`
+              findAllGeohashs{
+              id latitude longitude
+          }
+        }`,
       },
     })
-      .then(response => {
-        console.log(response.data)
+      .then((response) => {
+        console.log(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   },
@@ -72,8 +69,8 @@ export default {
       mapObject.locate();
     },
     onLocationFound(location) {
-      this.center = [location.latitude, location.longitude]
-      this.marker = [location.latitude, location.longitude]
+      this.center = [location.latitude, location.longitude];
+      this.marker = [location.latitude, location.longitude];
     },
     zoomUpdated(zoom) {
       this.zoom = 30;
