@@ -51,9 +51,9 @@ export default {
       data: {
         query: `
                 {
-                  geohashById{
+                  geohashs{
                       id
-                      geohash
+                      name
                       latitude
                       longitude
                   }

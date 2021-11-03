@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Geohash {
     @Id
     private String id;
-    private String geohash;
+    private String name;
     private String latitude;
     private String longitude;
 
@@ -18,8 +18,8 @@ public class Geohash {
         this.id = id;
     }
 
-    public Geohash(String geohash, String latitude, String longitude) {
-        this.geohash = geohash;
+    public Geohash(String name, String latitude, String longitude) {
+        this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -28,12 +28,12 @@ public class Geohash {
         return id;
     }
 
-    public String getGeohash() {
-        return geohash;
+    public String getName() {
+        return name;
     }
 
-    public void setGeohash(String geohash) {
-        this.geohash = geohash;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLatitude() {
@@ -54,7 +54,7 @@ public class Geohash {
 
     @Override
     public String toString() {
-        return "Geohash [id=" + id + ", geohash=" + geohash + ", latitude=" + latitude + ", longitude=" + longitude
+        return "Geohash [id=" + id + ", name=" + name + ", latitude=" + latitude + ", longitude=" + longitude
                 + "]";
     }
 }

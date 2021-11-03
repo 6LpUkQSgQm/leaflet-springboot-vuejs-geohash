@@ -1,5 +1,6 @@
 package com.julienchapron.backend.resolver;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,9 +17,9 @@ public class Mutation implements GraphQLMutationResolver {
         this.geohashRepository = geohashRepository;
     }
 
-    public Geohash createGeohash(String geohashStr, String longitude, String latitude) {
+    public Geohash createGeohash(String name, String longitude, String latitude) {
         Geohash geohash = new Geohash();
-        //eohashStr.setGeohash(geohash);
+        geohash.setName(name);
         geohash.setLongitude(longitude);
         geohash.setLatitude(latitude);
         geohashRepository.save(geohash);
