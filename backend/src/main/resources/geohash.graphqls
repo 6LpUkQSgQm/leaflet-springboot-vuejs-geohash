@@ -1,16 +1,17 @@
 type Geohash {
-	id: ID!
-	name: String!
-	latitude: String!
-    longitude: String!
+  id: String!
+  name: String!
+  latitude: String!
+  longitude: String!
 }
 
 # Root
 type Query {
-	findAllGeohashs: [Geohash]!
+  findAllGeohashs: [Geohash]!
+  findGeohash(id: String): Geohash
 }
 
 # Root
 type Mutation {
-	createGeohash(name: String!, latitude: String!, longitude: String!): Geohash!
+  createGeohash(name: String!, latitude: String!, longitude: String!): Geohash!
 }

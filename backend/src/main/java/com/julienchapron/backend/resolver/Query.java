@@ -6,7 +6,10 @@ import org.springframework.stereotype.Component;
 import com.julienchapron.backend.model.Geohash;
 import com.julienchapron.backend.repository.GeohashRepository;
 
+import java.io.OptionalDataException;
+
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.google.common.base.Optional;
 @Component
 public class Query implements GraphQLQueryResolver {
   private GeohashRepository geohashRepository;
@@ -19,6 +22,8 @@ public class Query implements GraphQLQueryResolver {
   public Iterable<Geohash> findAllGeohashs() {
     return geohashRepository.findAll();
   }
-
+  public java.util.Optional<Geohash> findGeohash(String id) {
+    return geohashRepository.findById(id);
+  }
 }
 
