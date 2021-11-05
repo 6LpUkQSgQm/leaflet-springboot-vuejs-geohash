@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       message: "",
-      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      url: "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
       center: [48.8534, 2.3488],
       zoom: 12,
       marker: [48.8534, 2.3488],
@@ -47,7 +47,7 @@ export default {
   created() {
     axios({
       method: "POST",
-      url: "http://localhost:8080/api/v1/graphql",
+      url: "http://localhost:8091/api/v1/graphql",
       data: {
         query: `
                 {
