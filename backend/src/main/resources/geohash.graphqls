@@ -3,6 +3,7 @@ type Geohash {
   name: String!
   latitude: String!
   longitude: String!
+  geohashValue: String!
 }
 
 # Root

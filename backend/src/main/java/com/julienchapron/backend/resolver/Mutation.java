@@ -22,6 +22,7 @@ public class Mutation implements GraphQLMutationResolver {
         geohash.setName(name);
         geohash.setLongitude(longitude);
         geohash.setLatitude(latitude);
+        geohash.setGeohashValue("56567");
         geohashRepository.save(geohash);
         return geohash;
     }

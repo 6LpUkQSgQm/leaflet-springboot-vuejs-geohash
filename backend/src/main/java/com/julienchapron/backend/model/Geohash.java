@@ -10,6 +10,7 @@ public class Geohash {
     private String name;
     private String latitude;
     private String longitude;
+    private String geohashValue;
 
     public Geohash() {
     }
@@ -18,10 +19,11 @@ public class Geohash {
         this.id = id;
     }
 
-    public Geohash(String name, String latitude, String longitude) {
+    public Geohash(String name, String latitude, String longitude, String geohashValue) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.geohashValue = geohashValue;
     }
 
     public String getId() {
@@ -52,9 +54,13 @@ public class Geohash {
         this.longitude = longitude;
     }
 
+    public void setGeohashValue(String geohashValue) {
+        this.geohashValue = geohashValue;
+    }
+
     @Override
     public String toString() {
         return "Geohash [id=" + id + ", name=" + name + ", latitude=" + latitude + ", longitude=" + longitude
-                + "]";
+                + ", geohash=" + geohashValue + "]";
     }
 }
