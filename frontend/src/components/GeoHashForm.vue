@@ -9,12 +9,20 @@
           to obtain latitude/longitude
         </p>
         <v-form>
-          <v-row>
-            <v-col cols="12" md="4">
+          <v-row
+            ><v-col cols="12" md="3">
+              <v-text-field
+                v-model="countryCode"
+                label="countryCode"
+                required
+              ></v-text-field>
+            </v-col>
+
+            <v-col cols="12" md="3">
               <v-text-field v-model="name" label="name" required></v-text-field>
             </v-col>
 
-            <v-col cols="12" md="4">
+            <v-col cols="12" md="3">
               <v-text-field
                 v-model="latitude"
                 label="latitude"
@@ -22,7 +30,7 @@
               ></v-text-field>
             </v-col>
 
-            <v-col cols="12" md="4">
+            <v-col cols="12" md="3">
               <v-text-field
                 v-model="longitude"
                 label="longitude"
@@ -66,13 +74,15 @@ export default {
     return {
       headers: [
         {
-          text: "name",
+          text: "countryCode",
           align: "start",
-          value: "name",
+          value: "countryCode",
         },
+        { text: "name", value: "name" },
         { text: "latitude", value: "latitude" },
         { text: "longitude", value: "longitude" },
         { text: "geohash", value: "geohashValue" },
+        { text: "delete", value: false },
       ],
       data: [],
     };

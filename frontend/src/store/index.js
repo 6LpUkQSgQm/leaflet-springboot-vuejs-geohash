@@ -11,5 +11,4 @@ export default new Vuex.Store({
     geohashs
   },
   strict: debug,
-  plugins: debug ? [createLogger()] : []
 })

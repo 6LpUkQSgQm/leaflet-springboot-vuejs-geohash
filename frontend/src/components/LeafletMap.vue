@@ -2,18 +2,18 @@
   <l-map
     @ready="onReady"
     @locationfound="onLocationFound"
-    @click="getLatLong" 
+    @click="getLatLong"
     :center="center"
     :zoom="zoom"
-    class="map"
+    class="map cursor"
     ref="map"
     @update:zoom="zoomUpdated"
     @update:center="centerUpdated"
   >
     <l-tile-layer :url="url"> </l-tile-layer>
     <l-marker
-      v-for="(item, index) in data"
-      :lat-lng="[item.longitude, item.latitude]"
+      v-for="(geohash, index) in geohashs"
+      :lat-lng="[geohash.longitude, geohash.latitude]"
       :key="index"
       :icon="iconTriangle"
     />
@@ -22,12 +22,10 @@
 </template>
 
 <script>
-import { AXIOS } from "./http-common";
-import axios from "axios";
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
 import { icon } from "leaflet";
-
+import { mapState } from "vuex";
 export default {
   name: "LeafletMap",
   components: {
@@ -42,7 +40,7 @@ export default {
       url:
         "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
       center: [48.8534, 2.3488],
-      zoom: 12,
+      zoom: 13,
       marker: [48.8534, 2.3488],
       data: [],
       iconCircle: icon({
@@ -55,31 +53,16 @@ export default {
       }),
     };
   },
+  computed: mapState({
+    geohashs: (state) => state.geohashs.all,
+  }),
   created() {
-    axios({
-      method: "POST",
-      url: "http://localhost:8093/api/v1/graphql",
-      data: {
-        query: `
-                {
-              findAllGeohashs{
-              id name latitude longitude geohashValue
-          }
-        }`,
-      },
-    })
-      .then((response) => {
-
-        this.data = response.data.data.findAllGeohashs;
-        console.log(this.data)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.$store.dispatch("geohashs/getAllGeohashs");
   },
   methods: {
     getLatLong(event) {
-      console.log(event.latlng)
+      this.$store.dispatch("geohashs/getCountryGeocoding", event.latlng);
+      console.log(event.latlng);
     },
     onReady(mapObject) {
       mapObject.locate();
@@ -89,13 +72,13 @@ export default {
       this.marker = [location.latitude, location.longitude];
     },
     zoomUpdated(zoom) {
-      this.zoom = 30;
+      this.zoom = 13;
     },
     centerUpdated(center) {
       this.center = center;
     },
     zoomUpdated(zoom) {
-      this.zoom = 1;
+      this.zoom = 13;
     },
     centerUpdated(center) {
       this.center = center;
@@ -106,5 +89,8 @@ export default {
 <style scoped>
 .map {
   height: 100vh !important;
+}
+.cursor {
+  cursor: crosshair !important;
 }
 </style>
