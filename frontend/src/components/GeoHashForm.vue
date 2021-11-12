@@ -55,7 +55,7 @@
         <p>List of Geohashs</p>
         <v-data-table
           :headers="headers"
-          :items="data"
+          :items="geohashs"
           :items-per-page="20"
           class="elevation-1"
         ></v-data-table>
@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import { AXIOS } from "./http-common";
 import axios from "axios";
+import { mapState } from "vuex";
 export default {
   name: "GeoHashForm",
   components: {},
@@ -84,35 +84,20 @@ export default {
         { text: "geohash", value: "geohashValue" },
         { text: "delete", value: false },
       ],
-      data: [],
     };
   },
-  created() {
-    axios({
-      method: "POST",
-      url: "http://localhost:8093/api/v1/graphql",
-      data: {
-        query: `
-                {
-              findAllGeohashs{
-              id name latitude longitude geohashValue
-          }
-        }`,
-      },
-    })
-      .then((response) => {
-        this.data = response.data.data.findAllGeohashs;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
+   computed: mapState({
+    geohashs: state => state.geohashs.all,
+    longitude: state => state.geohashs.longitude,
+    latitude: state => state.geohashs.latitude,
+    countryCode: state => state.geohashs.countryCode
+  }),
   methods: {
     postGeohash(name, latitude, longitude) {
       console.log(name, latitude, longitude);
       axios({
         method: "POST",
-        url: "http://localhost:8093/api/v1/graphql",
+        url: process.env.VUE_APP_URL_BACKEND,
         data: {
           query: `
                 mutation {

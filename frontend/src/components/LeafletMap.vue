@@ -22,10 +22,10 @@
 </template>
 
 <script>
+import { mapState} from 'vuex'
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
 import { icon } from "leaflet";
-import { mapState } from "vuex";
 export default {
   name: "LeafletMap",
   components: {
@@ -42,7 +42,6 @@ export default {
       center: [48.8534, 2.3488],
       zoom: 13,
       marker: [48.8534, 2.3488],
-      data: [],
       iconCircle: icon({
         iconUrl: require("../assets/circle.png"),
         iconSize: [20, 20],
@@ -54,15 +53,11 @@ export default {
     };
   },
   computed: mapState({
-    geohashs: (state) => state.geohashs.all,
+    geohashs: state => state.geohashs.all
   }),
-  created() {
-    this.$store.dispatch("geohashs/getAllGeohashs");
-  },
   methods: {
     getLatLong(event) {
       this.$store.dispatch("geohashs/getCountryGeocoding", event.latlng);
-      console.log(event.latlng);
     },
     onReady(mapObject) {
       mapObject.locate();

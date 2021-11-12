@@ -2,7 +2,7 @@
   <v-app>
     <v-container fluid>
       <v-row>
-        <v-col style="padding:30px" md="6" :cols="12">
+        <v-col style="padding: 30px" md="6" :cols="12">
           <LeafletMap id="map" />
         </v-col>
         <v-col md="6" :cols="12">
@@ -19,10 +19,13 @@ import GeoHashForm from "./components/GeoHashForm";
 
 export default {
   name: "App",
-
   components: {
     LeafletMap,
     GeoHashForm,
+  },
+  created() {
+    console.log('passage 1')
+    this.$store.dispatch("geohashs/getAllGeohashs");
   },
 };
 </script>

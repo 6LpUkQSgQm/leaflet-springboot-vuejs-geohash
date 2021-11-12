@@ -4,7 +4,8 @@ import axios from "axios";
 const state = () => ({
   all: [],
   countryCode: "",
-  latLongCountry: [],
+  latitude: "",
+  longitude: "",
 });
 
 // getters
@@ -19,18 +20,17 @@ const actions = {
     })
       .then((response) => {
         commit("setCountryCode", response.data.countryCode);
+        commit("setLatLong", latlng);
       })
       .catch((error) => {
         console.log(error);
       });
   },
-  addLatLong({ commit }, latLongCountry) {
-    commit("setLatLong", latLongCountry);
-  },
   getAllGeohashs({ commit }) {
+    console.log("passage");
     axios({
       method: "POST",
-      url: `${process.env.VUE_APP_URL_BACKEND}`,
+      url: process.env.VUE_APP_URL_BACKEND,
       data: {
         query: `
               {
@@ -58,7 +58,8 @@ const mutations = {
     state.countryCode = countryCode;
   },
   setLatLong(state, latLongCountry) {
-    state.latLongCountry = latLongCountry;
+    state.latitude = latLongCountry.lat;
+    state.longitude = latLongCountry.lng;
   },
 };
 
