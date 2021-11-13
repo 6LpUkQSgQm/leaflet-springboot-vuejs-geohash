@@ -14,9 +14,9 @@ const getters = {};
 // actions
 const actions = {
   getCountryGeocoding({ commit }, latlng) {
-    axios({
+     axios({
       method: "GET",
-      url: `${process.env.VUE_APP_URL_API_REVERSE_GEOCODE}?latitude=${latlng.lat}&longitude=${latlng.long}`,
+      url: `${process.env.VUE_APP_URL_API_REVERSE_GEOCODE}?latitude=${latlng.lat}&longitude=${latlng.lng}`,
     })
       .then((response) => {
         commit("setCountryCode", response.data.countryCode);

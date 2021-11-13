@@ -8,7 +8,7 @@
           Enter latitude, longitude & precision to obtain geohash; enter geohash
           to obtain latitude/longitude
         </p>
-        <v-form>
+        <v-form ref="form">
           <v-row
             ><v-col cols="12" md="3">
               <v-text-field
@@ -19,7 +19,12 @@
             </v-col>
 
             <v-col cols="12" md="3">
-              <v-text-field v-model="name" label="name" required></v-text-field>
+              <v-text-field
+                v-model="name"
+                :rules="nameRules"
+                label="name"
+                required
+              ></v-text-field>
             </v-col>
 
             <v-col cols="12" md="3">
@@ -40,10 +45,10 @@
           </v-row>
 
           <v-btn
-            v-on:click="postGeohash(name, latitude, longitude)"
+            v-on:click="postGeohash(countryCode, name, latitude, longitude)"
             class="right"
             color="#ef233c"
-            style="color:#edf2f4"
+            style="color: #edf2f4"
             elevation="2"
             >Submit</v-btn
           >
@@ -84,35 +89,40 @@ export default {
         { text: "geohash", value: "geohashValue" },
         { text: "delete", value: false },
       ],
+      name: "",
+      nameRules: [(v) => !!v || "Name is required"],
     };
   },
-   computed: mapState({
-    geohashs: state => state.geohashs.all,
-    longitude: state => state.geohashs.longitude,
-    latitude: state => state.geohashs.latitude,
-    countryCode: state => state.geohashs.countryCode
+  computed: mapState({
+    geohashs: (state) => state.geohashs.all,
+    longitude: (state) => state.geohashs.longitude,
+    latitude: (state) => state.geohashs.latitude,
+    countryCode: (state) => state.geohashs.countryCode,
   }),
   methods: {
     postGeohash(name, latitude, longitude) {
-      console.log(name, latitude, longitude);
-      axios({
-        method: "POST",
-        url: process.env.VUE_APP_URL_BACKEND,
-        data: {
-          query: `
+      const test = this.$refs.form.validate();
+      if (test) {
+        console.log(name, latitude, longitude);
+        axios({
+          method: "POST",
+          url: process.env.VUE_APP_URL_BACKEND,
+          data: {
+            query: `
                 mutation {
               createGeohash(name: "${name}", latitude:"${latitude}", longitude:"${longitude}"){
               id name latitude longitude geohashValue
               }
         }`,
-        },
-      })
-        .then((response) => {
-          this.data = response.data.data.findAllGeohashs;
+          },
         })
-        .catch((error) => {
-          console.log(error);
-        });
+          .then((response) => {
+            this.data = response.data.data.findAllGeohashs;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     },
   },
 };
