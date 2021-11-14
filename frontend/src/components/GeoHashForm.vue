@@ -13,6 +13,7 @@
             ><v-col cols="12" md="3">
               <v-text-field
                 v-model="countryCode"
+                :rules="countryCodeRules"
                 label="countryCode"
                 required
               ></v-text-field>
@@ -30,6 +31,7 @@
             <v-col cols="12" md="3">
               <v-text-field
                 v-model="latitude"
+                :rules="latitudeRules"
                 label="latitude"
                 required
               ></v-text-field>
@@ -38,6 +40,7 @@
             <v-col cols="12" md="3">
               <v-text-field
                 v-model="longitude"
+                :rules="longitudeRules"
                 label="longitude"
                 required
               ></v-text-field>
@@ -57,11 +60,11 @@
 
       <v-divider class="mt-5 mb-5"></v-divider>
       <v-container>
-        <p>List of Geohashs</p>
+        <h3>List of Geohashs</h3>
         <v-data-table
           :headers="headers"
           :items="geohashs"
-          :items-per-page="20"
+          :items-per-page="5"
           class="elevation-1"
         ></v-data-table>
       </v-container>
@@ -87,10 +90,20 @@ export default {
         { text: "latitude", value: "latitude" },
         { text: "longitude", value: "longitude" },
         { text: "geohash", value: "geohashValue" },
-        { text: "delete", value: false },
+        {
+          text: "delete",
+          value: (
+            <v-icon large color="green darken-2">
+              mdi-domain
+            </v-icon>
+          ),
+        },
       ],
       name: "",
       nameRules: [(v) => !!v || "Name is required"],
+      latitudeRules: [(v) => !!v || "Latitude is required"],
+      longitudeRules: [(v) => !!v || "Longitude is required"],
+      countryCodeRules: [(v) => !!v || "CountryCode is required"],
     };
   },
   computed: mapState({
@@ -100,18 +113,18 @@ export default {
     countryCode: (state) => state.geohashs.countryCode,
   }),
   methods: {
-    postGeohash(name, latitude, longitude) {
+    postGeohash(countryCode, name, latitude, longitude) {
       const test = this.$refs.form.validate();
       if (test) {
-        console.log(name, latitude, longitude);
+        console.log(countryCode, name, latitude, longitude);
         axios({
           method: "POST",
           url: process.env.VUE_APP_URL_BACKEND,
           data: {
             query: `
                 mutation {
-              createGeohash(name: "${name}", latitude:"${latitude}", longitude:"${longitude}"){
-              id name latitude longitude geohashValue
+              createGeohash(countryCode: "${countryCode}", name: "${name}", latitude:"${latitude}", longitude:"${longitude}"){
+              id countryCode name latitude longitude geohashValue createdDate
               }
         }`,
           },

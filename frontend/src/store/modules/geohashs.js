@@ -35,7 +35,7 @@ const actions = {
         query: `
               {
             findAllGeohashs{
-            id name latitude longitude geohashValue
+            id countryCode name latitude longitude geohashValue createdDate
         }
       }`,
       },
