@@ -1,9 +1,11 @@
 type Geohash {
   id: String!
+  countryCode: String!
   name: String!
   latitude: String!
   longitude: String!
   geohashValue: String!
+  createdDate: String!
 }
 
 # Root
@@ -14,5 +16,10 @@ type Query {
 
 # Root
 type Mutation {
-  createGeohash(name: String!, latitude: String!, longitude: String!): Geohash!
+  createGeohash(
+    countryCode: String!
+    name: String!
+    latitude: String!
+    longitude: String!
+  ): Geohash!
 }

@@ -5,62 +5,89 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "geohashs")
 public class Geohash {
-    @Id
-    private String id;
-    private String name;
-    private String latitude;
-    private String longitude;
-    private String geohashValue;
 
-    public Geohash() {
-    }
+  @Id
+  private String id;
 
-    public Geohash(String id) {
-        this.id = id;
-    }
+  private String countryCode;
+  private String name;
+  private String latitude;
+  private String longitude;
+  private String geohashValue;
+  private String createdDate;
 
-    public Geohash(String name, String latitude, String longitude, String geohashValue) {
-        this.name = name;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.geohashValue = geohashValue;
-    }
+  public Geohash() {
+  }
 
-    public String getId() {
-        return id;
-    }
+  public Geohash(String id) {
+    this.id = id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public Geohash(String countryCode, String name, String latitude, String longitude, String geohashValue,
+      String createdDate) {
+    this.countryCode = countryCode;
+    this.name = name;
+    this.latitude = latitude;
+    this.longitude = longitude;
+    this.geohashValue = geohashValue;
+    this.createdDate = createdDate;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public String getLatitude() {
-        return latitude;
-    }
+  public String getCountryCode() {
+    return countryCode;
+  }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
+  }
 
-    public String getLongitude() {
-        return longitude;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setGeohashValue(String geohashValue) {
-        this.geohashValue = geohashValue;
-    }
+  public String getLatitude() {
+    return latitude;
+  }
 
-    @Override
-    public String toString() {
-        return "Geohash [id=" + id + ", name=" + name + ", latitude=" + latitude + ", longitude=" + longitude
-                + ", geohash=" + geohashValue + "]";
-    }
+  public void setLatitude(String latitude) {
+    this.latitude = latitude;
+  }
+
+  public String getLongitude() {
+    return longitude;
+  }
+
+  public void setLongitude(String longitude) {
+    this.longitude = longitude;
+  }
+
+  public String getGeohashValue() {
+    return geohashValue;
+  }
+
+  public void setGeohashValue(String geohashValue) {
+    this.geohashValue = geohashValue;
+  }
+
+  public String getCreatedDate() {
+    return createdDate;
+  }
+
+  public void setCreatedDate(String createdDate) {
+    this.createdDate = createdDate;
+  }
+
+  @Override
+  public String toString() {
+    return ("Geohash [id=" + id + ", countryCode =" + countryCode + ", name=" + name + ", latitude=" + latitude
+        + ", longitude=" + longitude + ", geohashValue=" + geohashValue + ", createdDate=" + createdDate + "]");
+  }
 }
