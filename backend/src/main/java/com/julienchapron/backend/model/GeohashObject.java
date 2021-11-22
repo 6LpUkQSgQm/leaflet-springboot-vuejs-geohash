@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "geohashs")
-public class Geohash {
+public class GeohashObject {
 
   @Id
   private String id;
@@ -16,14 +16,14 @@ public class Geohash {
   private String geohashValue;
   private String createdDate;
 
-  public Geohash() {
+  public GeohashObject() {
   }
 
-  public Geohash(String id) {
+  public GeohashObject(String id) {
     this.id = id;
   }
 
-  public Geohash(String countryCode, String name, String latitude, String longitude, String geohashValue,
+  public GeohashObject(String countryCode, String name, String latitude, String longitude, String geohashValue,
       String createdDate) {
     this.countryCode = countryCode;
     this.name = name;

@@ -1,7 +1,7 @@
 package com.julienchapron.backend.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.julienchapron.backend.model.Geohash;
+import com.julienchapron.backend.model.GeohashObject;
 import com.julienchapron.backend.repository.GeohashRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,11 +16,11 @@ public class Query implements GraphQLQueryResolver {
     this.geohashRepository = geohashRepository;
   }
 
-  public Iterable<Geohash> findAllGeohashs() {
+  public Iterable<GeohashObject> findAllGeohashs() {
     return geohashRepository.findAll();
   }
 
-  public java.util.Optional<Geohash> findGeohash(String id) {
+  public java.util.Optional<GeohashObject> findGeohash(String id) {
     return geohashRepository.findById(id);
   }
 }

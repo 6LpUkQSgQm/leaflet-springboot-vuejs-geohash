@@ -1,9 +1,9 @@
 package com.julienchapron.backend.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import com.julienchapron.backend.model.Geohash;
+import com.julienchapron.backend.model.GeohashObject;
 
-public interface GeohashRepository extends MongoRepository<Geohash, String> {
+public interface GeohashRepository extends MongoRepository<GeohashObject, String> {
 }
 
 

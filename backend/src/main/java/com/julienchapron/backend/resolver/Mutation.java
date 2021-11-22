@@ -1,9 +1,8 @@
 package com.julienchapron.backend.resolver;
 
+import ch.hsr.geohash.GeoHash;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.coxautodev.graphql.tools.TypeClassMatcher.Location;
-import com.julienchapron.backend.helpers.GeoHashHelper;
-import com.julienchapron.backend.model.Geohash;
+import com.julienchapron.backend.model.GeohashObject;
 import com.julienchapron.backend.repository.GeohashRepository;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,22 +26,26 @@ public class Mutation implements GraphQLMutationResolver {
   LocalDateTime today = LocalDateTime.now();
   String timeString = today.format(formatter);
 
-  public Geohash createGeohash(
+  public GeohashObject createGeohash(
     String countryCode,
     String name,
     String longitude,
     String latitude
   ) {
     // geohash
-    final String locationGeohash = GeoHashHelper.getGeohash(latitude, longitude);
-    Geohash geohash = new Geohash();
-    geohash.setCountryCode(countryCode);
-    geohash.setName(name);
-    geohash.setLatitude(latitude);
-    geohash.setLongitude(longitude);
-    geohash.setGeohashValue("56567");
-    geohash.setCreatedDate(timeString);
-    geohashRepository.save(geohash);
-    return geohash;
+    double lat = isNumeric(latitude);
+    double lon = isNumeric(longitude);
+    int precision = 8;
+    GeoHash geoHash = GeoHash.withCharacterPrecision(lat,lon, precision);
+    String hashCode = geoHash.toBase32();
+    GeohashObject geohashObject = new GeohashObject();
+    geohashObject.setCountryCode(countryCode);
+    geohashObject.setName(name);
+    geohashObject.setLatitude(latitude);
+    geohashObject.setLongitude(longitude);
+    geohashObject.setGeohashValue(hashCode);
+    geohashObject.setCreatedDate(timeString);
+    geohashRepository.save(geohashObject);
+    return geohashObject;
   }
 }

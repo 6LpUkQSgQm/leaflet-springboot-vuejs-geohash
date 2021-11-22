@@ -1,4 +1,4 @@
-type Geohash {
+type GeohashObject {
   id: String!
   countryCode: String!
   name: String!
@@ -10,8 +10,8 @@ type Geohash {
 
 # Root
 type Query {
-  findAllGeohashs: [Geohash]!
-  findGeohash(id: String): Geohash
+  findAllGeohashs: [GeohashObject]!
+  findGeohash(id: String): GeohashObject
 }
 
 # Root
@@ -21,5 +21,5 @@ type Mutation {
     name: String!
     latitude: String!
     longitude: String!
-  ): Geohash!
+  ): GeohashObject!
 }
