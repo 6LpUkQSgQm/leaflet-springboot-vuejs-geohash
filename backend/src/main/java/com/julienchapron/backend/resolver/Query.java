@@ -19,8 +19,4 @@ public class Query implements GraphQLQueryResolver {
   public Iterable<GeohashObject> findAllGeohashs() {
     return geohashRepository.findAll();
   }
-
-  public java.util.Optional<GeohashObject> findGeohash(String id) {
-    return geohashRepository.findById(id);
-  }
 }

@@ -11,7 +11,6 @@ type GeohashObject {
 # Root
 type Query {
   findAllGeohashs: [GeohashObject]!
-  findGeohash(id: String): GeohashObject
 }
 
 # Root
@@ -22,4 +21,6 @@ type Mutation {
     latitude: String!
     longitude: String!
   ): GeohashObject!
+
+  deleteGeohash(id: ID!): Boolean
 }

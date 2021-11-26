@@ -26,6 +26,7 @@ public class Mutation implements GraphQLMutationResolver {
   LocalDateTime today = LocalDateTime.now();
   String timeString = today.format(formatter);
 
+  // create
   public GeohashObject createGeohash(
     String countryCode,
     String name,
@@ -33,10 +34,10 @@ public class Mutation implements GraphQLMutationResolver {
     String latitude
   ) {
     // geohash
-    double lat = isNumeric(latitude);
-    double lon = isNumeric(longitude);
+    double lat = Double.parseDouble(latitude);
+    double lon = Double.parseDouble(longitude);
     int precision = 8;
-    GeoHash geoHash = GeoHash.withCharacterPrecision(lat,lon, precision);
+    GeoHash geoHash = GeoHash.withCharacterPrecision(lat, lon, precision);
     String hashCode = geoHash.toBase32();
     GeohashObject geohashObject = new GeohashObject();
     geohashObject.setCountryCode(countryCode);
@@ -47,5 +48,11 @@ public class Mutation implements GraphQLMutationResolver {
     geohashObject.setCreatedDate(timeString);
     geohashRepository.save(geohashObject);
     return geohashObject;
+  }
+
+  // delete
+  public boolean deleteGeohash(String id) {
+    geohashRepository.deleteById(id);
+    return true;
   }
 }
