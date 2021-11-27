@@ -24,7 +24,6 @@ export default {
     GeoHashForm,
   },
   created() {
-    console.log('passage 1')
     this.$store.dispatch("geohashs/getAllGeohashs");
   },
 };

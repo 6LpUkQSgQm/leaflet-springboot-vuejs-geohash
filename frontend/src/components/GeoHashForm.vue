@@ -61,25 +61,53 @@
       <v-divider class="mt-5 mb-5"></v-divider>
       <v-container>
         <h3>List of Geohashs</h3>
-        <v-data-table
-          :headers="headers"
-          :items="geohashs"
-          :items-per-page="5"
-          class="elevation-1"
-        ></v-data-table>
+        <div style="max-height: 50vh; overflow: auto">
+          <v-data-table
+            :headers="headers"
+            :items="geohashs"
+            :items-per-page="5"
+            class="elevation-1"
+          >
+            <template slot="item.delete" scope="props">
+              <v-icon small @click="openDialogDeleteGeohash(props.item.id)">
+                mdi-delete
+              </v-icon></template
+            >
+          </v-data-table>
+        </div>
       </v-container>
     </v-container>
+    <v-dialog style="z-index: 999999" v-model="dialog" width="500">
+      <v-card>
+        <v-card-title class="text-h5 grey lighten-2">
+          Delete geohash
+        </v-card-title>
+
+        <v-card-text> Are you sure to delete this geohash ? </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+           <v-btn text @click="dialog=false">
+            Annuler
+          </v-btn>
+          <v-btn color="red" text @click="confirmDeleteGeohash()">
+            Delete
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 import { mapState } from "vuex";
 export default {
   name: "GeoHashForm",
   components: {},
   data() {
     return {
+      dialog: false,
+      idGeohashToDelete: null,
       headers: [
         {
           text: "countryCode",
@@ -90,14 +118,7 @@ export default {
         { text: "latitude", value: "latitude" },
         { text: "longitude", value: "longitude" },
         { text: "geohash", value: "geohashValue" },
-        {
-          text: "delete",
-          value: (
-            <v-icon large color="green darken-2">
-              mdi-domain
-            </v-icon>
-          ),
-        },
+        { text: "delete", value: "delete" },
       ],
       name: "",
       nameRules: [(v) => !!v || "Name is required"],
@@ -113,28 +134,23 @@ export default {
     countryCode: (state) => state.geohashs.countryCode,
   }),
   methods: {
+    openDialogDeleteGeohash(id) {
+      this.idGeohashToDelete = id;
+      this.dialog = true;
+    },
+    confirmDeleteGeohash() {
+      console.log(this.idGeohashToDelete, "idGeohashToDelete");
+      this.$store.dispatch("geohashs/deleteGeohash", {
+        geohash: {id: this.idGeohashToDelete},
+      });
+      this.dialog = false;
+    },
     postGeohash(countryCode, name, latitude, longitude) {
       const test = this.$refs.form.validate();
       if (test) {
-        console.log(countryCode, name, latitude, longitude);
-        axios({
-          method: "POST",
-          url: process.env.VUE_APP_URL_BACKEND,
-          data: {
-            query: `
-                mutation {
-              createGeohash(countryCode: "${countryCode}", name: "${name}", latitude:"${latitude}", longitude:"${longitude}"){
-              id countryCode name latitude longitude geohashValue createdDate
-              }
-        }`,
-          },
-        })
-          .then((response) => {
-            this.data = response.data.data.findAllGeohashs;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        this.$store.dispatch("geohashs/postGeohash", {
+          geohash: { countryCode, name, latitude, longitude },
+        });
       }
     },
   },

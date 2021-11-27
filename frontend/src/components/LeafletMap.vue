@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapState} from 'vuex'
+import { mapState } from "vuex";
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
 import { icon } from "leaflet";
@@ -37,8 +37,7 @@ export default {
     return {
       data: [],
       message: "",
-      url:
-        "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
+      url: "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
       center: [48.8534, 2.3488],
       zoom: 13,
       marker: [48.8534, 2.3488],
@@ -53,7 +52,7 @@ export default {
     };
   },
   computed: mapState({
-    geohashs: state => state.geohashs.all
+    geohashs: (state) => state.geohashs.all,
   }),
   methods: {
     getLatLong(event) {
