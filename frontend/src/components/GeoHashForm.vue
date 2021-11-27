@@ -87,9 +87,7 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-           <v-btn text @click="dialog=false">
-            Annuler
-          </v-btn>
+          <v-btn text @click="dialog = false"> Annuler </v-btn>
           <v-btn color="red" text @click="confirmDeleteGeohash()">
             Delete
           </v-btn>
@@ -141,7 +139,7 @@ export default {
     confirmDeleteGeohash() {
       console.log(this.idGeohashToDelete, "idGeohashToDelete");
       this.$store.dispatch("geohashs/deleteGeohash", {
-        geohash: {id: this.idGeohashToDelete},
+        geohash: { id: this.idGeohashToDelete },
       });
       this.dialog = false;
     },
