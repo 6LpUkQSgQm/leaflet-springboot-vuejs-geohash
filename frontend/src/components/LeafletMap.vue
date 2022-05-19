@@ -24,7 +24,7 @@
 <script>
 import { mapState } from "vuex";
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import { icon } from "leaflet";
 export default {
   name: "LeafletMap",
@@ -65,11 +65,8 @@ export default {
       this.center = [location.latitude, location.longitude];
       this.marker = [location.latitude, location.longitude];
     },
-    zoomUpdated(zoom) {
-      this.zoom = 13;
-    },
-    centerUpdated(center) {
-      this.center = center;
+    centerUpdated(centerProp) {
+      this.center = centerProp;
     },
     zoomUpdated(zoom) {
       this.zoom = 13;
