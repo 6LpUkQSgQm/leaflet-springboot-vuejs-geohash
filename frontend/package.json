@@ -17,7 +17,7 @@
     "leaflet": "^1.8.0",
     "npm": "^7.24.2",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.2",
+    "vue-router": "^3.5.3",
     "vue2-leaflet": "^2.7.1",
     "vuetify": "^2.5.11",
     "vuex": "^3.6.2"
