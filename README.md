@@ -8,7 +8,7 @@
 
 ### App
 
-![app-gif](https://raw.githubusercontent.com/JulienChapron/leaflet-springboot-vuejs-geohash/main/readme/app1.gif)
+![app-gif](https://raw.githubusercontent.com/JulienChapron/leaflet-springboot-vuejs-geohash/master/readme/app1.gif)
 
 ### Map
 
