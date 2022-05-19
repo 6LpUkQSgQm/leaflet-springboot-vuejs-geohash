@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   frontend:
@@ -8,15 +8,16 @@ services:
     depends_on:
       - backend
   mongodb:
-    image: mongo:latest
+    image: "mongo:4.4.3"
+    restart: always
     ports:
       - "7017:27017"
     volumes:
       - db:/data/db
   backend:
-    build: ./backend
     depends_on:
       - mongodb
+    build: ./backend
     ports:
       - 8093:8093
     restart: always

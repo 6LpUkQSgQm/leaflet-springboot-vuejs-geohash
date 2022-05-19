@@ -15,8 +15,8 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<graphql.version>11.0.0</graphql.version>
-		<pmd.version>3.11.0</pmd.version>
+		<graphql.version>16.5.0</graphql.version>
+		<pmd.version>6.45.0</pmd.version>
 	</properties>
 
 	<dependencies>
