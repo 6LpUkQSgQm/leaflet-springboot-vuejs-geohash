@@ -7,14 +7,15 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/1f64ae2047552c7a54a4/maintainability)](https://codeclimate.com/github/JulienChapron/leaflet-springboot-vuejs-geohash/maintainability)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/JulienChapron/leaflet-springboot-vuejs-geohash.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/JulienChapron/leaflet-springboot-vuejs-geohash/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/JulienChapron/leaflet-springboot-vuejs-geohash.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/JulienChapron/leaflet-springboot-vuejs-geohash/context:javascript)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/eb205152ae64436bbe03f354f74af2aa)](https://www.codacy.com/gh/JulienChapron/leaflet-springboot-vuejs-geohash/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JulienChapron/leaflet-springboot-vuejs-geohash&amp;utm_campaign=Badge_Grade)
 
-### App
+## App
 ![app-gif](https://raw.githubusercontent.com/JulienChapron/leaflet-springboot-vuejs-geohash/master/readme/app1.gif)
 
 ## Project Description
 Simple geohash generator
 
-### Map
+## Map
 * <img src="https://stadiamaps.com/_nuxt/img/logo.5bf6d30.svg" alt="logo-vue" height="50"/> StadiaMaps <https://stadiamaps.com/guides/interactive-maps>
 ## Tech Stack front-end
 * <img src="https://www.toutjavascript.com/demo/vue/img/logo-vue.82b9c7a5.png" alt="logo-vue" height="50"/> Vuejs <https://vuejs.org>
@@ -26,18 +27,18 @@ Simple geohash generator
 * <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.abhaybhargav.com%2Fcontent%2Fimages%2F2019%2F02%2FGraphQL_Logo.svg.png&f=1&nofb=1" alt="logo-vuetify" height="50"/> GraphQL <https://graphql.org/>
 ## Geohash library
 https://www.tabnine.com/code/java/packages/ch.hsr.geohash
-### Map
+## Map
 * <img src="https://stadiamaps.com/_nuxt/img/logo.5bf6d30.svg" alt="logo-vue" height="50"/> StadiaMaps <https://stadiamaps.com/guides/interactive-maps>
 ## Use this app
 
-### Copy this code
+## Copy this code
 
 ```bash
 https://github.com/JulienChapron/leaflet-springboot-vuejs-geohash.git
 ```
 Go to folder `leaflet-springboot-vuejs-geohash`
 
-### Run backend
+## Run backend
 
 ```bash
 cd ./leaflet-springboot-vuejs-geohash/backend
@@ -47,7 +48,7 @@ cd ./leaflet-springboot-vuejs-geohash/backend
 ./mvnw spring-boot:run
 ```
 
-### Run frontend
+## Run frontend
 
 ```bash
 cd ./leaflet-springboot-vuejs-geohash/frontend
