@@ -23,9 +23,9 @@
 
 <script>
 import { mapState } from "vuex";
-import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
-import { icon } from "leaflet";
+import "../../node_modules/leaflet/dist/leaflet.css";
+import { LMap, LTileLayer, LMarker } from "../../node_modules/vue2-leaflet";
+import { icon } from "../../node_modules/leaflet";
 export default {
   name: "LeafletMap",
   components: {
