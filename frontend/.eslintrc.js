@@ -4,7 +4,7 @@ module.exports = {
       "error",
       {
         version: ">=8.0.0",
-        ignores: [],
+        ignores: ["vue", "axios"],
       },
     ],
   },

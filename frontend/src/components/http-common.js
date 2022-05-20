@@ -1,4 +1,4 @@
-/*eslint node/no-missing-import: "error" */
+/* eslint-disable-next-line */
 import axios from "../../node_modules/axios";
 
 export const AXIOS = axios.create({
