@@ -16,7 +16,8 @@
 Simple geohash generator
 
 ## Map
-* <img src="https://stadiamaps.com/_nuxt/img/logo.5bf6d30.svg" alt="logo-vue" height="50"/> StadiaMaps <https://stadiamaps.com/guides/interactive-maps>
+* <img src="https://stadiamaps.com/_nuxt/img/logo.5bf6d30.svg" alt="logo-vue" height="50"/>StadiaMaps<https://stadiamaps.com/guides/interactive-maps>
+
 ## Tech Stack front-end
 * <img src="https://www.toutjavascript.com/demo/vue/img/logo-vue.82b9c7a5.png" alt="logo-vue" height="50"/> Vuejs <https://vuejs.org>
 * <img src="https://seeklogo.com/images/V/vuetify-logo-3BCF73C928-seeklogo.com.png" alt="logo-vuetify" height="50"/> Vuetify <https://vuetifyjs.com/en/>

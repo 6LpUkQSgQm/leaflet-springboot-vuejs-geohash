@@ -4,10 +4,7 @@
       <h1>GEOHASH v0.1</h1>
       <v-divider class="mt-5 mb-5"></v-divider>
       <v-container>
-        <p>
-          Enter latitude, longitude & precision to obtain geohash; enter geohash
-          to obtain latitude/longitude
-        </p>
+        <p>Enter latitude, longitude & precision to obtain geohash</p>
         <v-form ref="form">
           <v-row
             ><v-col cols="12" md="3">

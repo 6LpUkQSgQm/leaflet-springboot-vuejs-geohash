@@ -1,12 +1,12 @@
-<template style="background-color:#edf2f4">
+<template style="background-color: #edf2f4">
   <v-app>
     <v-container fluid>
       <v-row>
-        <v-col style="padding: 30px" md="6" :cols="12">
-          <LeafletMap id="map" />
-        </v-col>
         <v-col md="6" :cols="12">
           <GeoHashForm />
+        </v-col>
+        <v-col style="padding: 30px" md="6" :cols="12">
+          <LeafletMap id="map" />
         </v-col>
       </v-row>
     </v-container>
