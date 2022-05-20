@@ -71,9 +71,6 @@ export default {
     zoomUpdated(zoom) {
       this.zoom = 13;
     },
-    centerUpdated(center) {
-      this.center = center;
-    },
   },
 };
 </script>
