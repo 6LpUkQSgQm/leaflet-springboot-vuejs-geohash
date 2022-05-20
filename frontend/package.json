@@ -4,9 +4,6 @@
   "private": true,
   "description": "A Vue.js, Spring Boot & Leaflet project",
   "author": "Julien Chapron",
-  "engines": {
-    "node": ">=8.0.0"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
