@@ -1,3 +1,4 @@
+/*eslint node/no-missing-import: "error" */
 import axios from "axios";
 
 export const AXIOS = axios.create({
