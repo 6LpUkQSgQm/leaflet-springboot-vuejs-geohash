@@ -1,13 +1,9 @@
-// .eslintrc.js
 module.exports = {
-    "settings": {
-        "node": {
-            "allowModules": ["vue"],
-            "resolvePaths": [__dirname],
-            "tryExtensions": [".js", ".json", ".node"]
-        }
-    },
     "rules": {
-        "node/no-missing-import": "error"
+        "node/no-missing-import": ["error", {
+            "allowModules": ["vue"],
+            "resolvePaths": ["../frontend/node_modules/vue"],
+            "tryExtensions": [".js", ".json", ".node"]
+        }]
     }
-}
+};
