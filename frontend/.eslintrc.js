@@ -2,7 +2,10 @@ module.exports = {
   rules: {
     "node/no-unsupported-features/es-syntax": [
       "error",
-      { ignores: ["vue"] },
+      {
+        version: ">=8.0.0",
+        ignores: [],
+      },
     ],
   },
 };
