@@ -11,18 +11,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Mutation implements GraphQLMutationResolver {
-
+  // current date
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
+    "dd.MM.yyyy HH:mm:ss"
+  );
   private GeohashRepository geohashRepository;
 
   @Autowired
   public Mutation(GeohashRepository geohashRepository) {
     this.geohashRepository = geohashRepository;
   }
-
-  // current date
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
-    "dd.MM.yyyy HH:mm:ss"
-  );
   LocalDateTime today = LocalDateTime.now();
   String timeString = today.format(formatter);
 

@@ -28,8 +28,6 @@ Simple geohash generator
 *   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.abhaybhargav.com%2Fcontent%2Fimages%2F2019%2F02%2FGraphQL_Logo.svg.png&f=1&nofb=1" alt="logo-vuetify" height="50"/> GraphQL <https://graphql.org/>
 ## Geohash library
 https://www.tabnine.com/code/java/packages/ch.hsr.geohash
-## Map
-*   <img src="https://stadiamaps.com/_nuxt/img/logo.5bf6d30.svg" alt="logo-vue" height="50"/> StadiaMaps <https://stadiamaps.com/guides/interactive-maps>
 ## Use this app
 
 ## Copy this code
