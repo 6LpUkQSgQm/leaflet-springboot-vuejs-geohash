@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import LeafletMap from '@/components/LeafletMap'
+import Vue from "vue";
+import Router from "vue-router";
+import LeafletMap from "@/components/LeafletMap";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'LeafletMap',
-      component: LeafletMap
-    }
-  ]
-})
+      path: "/",
+      name: "LeafletMap",
+      component: LeafletMap,
+    },
+  ],
+});
