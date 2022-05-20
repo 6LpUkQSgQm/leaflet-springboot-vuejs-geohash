@@ -24,8 +24,8 @@ Simple geohash generator
 *   <img src="https://user-images.githubusercontent.com/7110136/29002857-9e802f08-7ab4-11e7-9c31-604b5d0d0c19.png" alt="logo-vuex" height="50"/> Vuex <https://vuex.vuejs.org//>
 
 ## Tech Stack back-end
-*  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fstartup-grind%2Fimage%2Fupload%2Fc_fill%2Cdpr_2.0%2Cf_auto%2Cg_center%2Ch_1080%2Cq_100%2Cw_1080%2Fv1%2Fgcs%2Fplatform-data-dsc%2Fevents%2Fspring-boot-1_5zDxm9B.jpg&f=1&nofb=1" alt="logo-vue" height="50"/> Spring Boot <https://spring.io/projects/spring-boot>
-* <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.abhaybhargav.com%2Fcontent%2Fimages%2F2019%2F02%2FGraphQL_Logo.svg.png&f=1&nofb=1" alt="logo-vuetify" height="50"/> GraphQL <https://graphql.org/>
+*   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fstartup-grind%2Fimage%2Fupload%2Fc_fill%2Cdpr_2.0%2Cf_auto%2Cg_center%2Ch_1080%2Cq_100%2Cw_1080%2Fv1%2Fgcs%2Fplatform-data-dsc%2Fevents%2Fspring-boot-1_5zDxm9B.jpg&f=1&nofb=1" alt="logo-vue" height="50"/> Spring Boot <https://spring.io/projects/spring-boot>
+*   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.abhaybhargav.com%2Fcontent%2Fimages%2F2019%2F02%2FGraphQL_Logo.svg.png&f=1&nofb=1" alt="logo-vuetify" height="50"/> GraphQL <https://graphql.org/>
 ## Geohash library
 https://www.tabnine.com/code/java/packages/ch.hsr.geohash
 ## Map
