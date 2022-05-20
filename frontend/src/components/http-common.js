@@ -1,4 +1,3 @@
-/* eslint-disable-next-line */
 import axios from "../../node_modules/axios";
 
 export const AXIOS = axios.create({
