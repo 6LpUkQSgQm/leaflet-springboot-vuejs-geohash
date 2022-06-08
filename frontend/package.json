@@ -15,7 +15,7 @@
     "test": "vue-cli-service test:unit && vue-cli-service test:e2e"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.27.2",
     "jquery": "^3.6.0",
     "leaflet": "^1.8.0",
     "npm": "^8.11.0",
