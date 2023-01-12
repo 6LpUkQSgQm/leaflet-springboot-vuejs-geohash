@@ -17,7 +17,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "jquery": "^3.6.1",
-    "leaflet": "^1.8.0",
+    "leaflet": "^1.9.3",
     "npm": "^8.13.0",
     "vue": "^2.7.14",
     "vue-router": "^3.6.0",
