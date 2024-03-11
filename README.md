@@ -5,7 +5,7 @@
 </a>
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/1f64ae2047552c7a54a4/maintainability)](https://codeclimate.com/github/JulienChapron/leaflet-springboot-vuejs-geohash/maintainability)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/eb205152ae64436bbe03f354f74af2aa)](https://www.codacy.com/gh/JulienChapron/leaflet-springboot-vuejs-geohash/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JulienChapron/leaflet-springboot-vuejs-geohash&amp;utm_campaign=Badge_Grade)
+![Known Vulnerabilities](https://snyk.io/test/github/JulienChapron/leaflet-springboot-vuejs-geohash/badge.svg)
 
 ## App
 ![app-gif](https://raw.githubusercontent.com/JulienChapron/leaflet-springboot-vuejs-geohash/master/readme/app1.gif)
