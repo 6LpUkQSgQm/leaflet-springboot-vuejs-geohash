@@ -5,8 +5,6 @@
 </a>
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/1f64ae2047552c7a54a4/maintainability)](https://codeclimate.com/github/JulienChapron/leaflet-springboot-vuejs-geohash/maintainability)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/JulienChapron/leaflet-springboot-vuejs-geohash.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/JulienChapron/leaflet-springboot-vuejs-geohash/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/JulienChapron/leaflet-springboot-vuejs-geohash.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/JulienChapron/leaflet-springboot-vuejs-geohash/context:javascript)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/eb205152ae64436bbe03f354f74af2aa)](https://www.codacy.com/gh/JulienChapron/leaflet-springboot-vuejs-geohash/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JulienChapron/leaflet-springboot-vuejs-geohash&amp;utm_campaign=Badge_Grade)
 
 ## App
